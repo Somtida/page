@@ -9,6 +9,6 @@ app.config(['$routeProvider', function($routeProvider) {
     otherwise({redirectTo: '/main'})
 }])
 
-app.controller('MainCtrl', [function() {
-  console.log("MainCtrl")
+app.controller('MainCtrl', ['$scope', function($scope) {
+  console.log($scope)
 }])
