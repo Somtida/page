@@ -21,6 +21,20 @@ app.config(['$routeProvider', function($routeProvider) {
     otherwise({redirectTo: '/main'})
 }])
 
-app.controller('MainCtrl', ['$scope', function($scope) {
-  $scope.message = "Welcome! How are you today?";
+app.controller('MainCtrl', ['$scope', '$http' , function($scope, $http) {
+   
+    var complete = (res) => {
+      $scope.user = res.data;
+    }
+    
+    var error = () => {
+      $scope.error = "Counld not fetch the user";
+    }
+    
+    $http.get("https://api.github.com/users/somtida")
+      .then(complete, error);
+      
+    $scope.message = "Hello!"
+   
+  }
 }])
