@@ -22,5 +22,5 @@ app.config(['$routeProvider', function($routeProvider) {
 }])
 
 app.controller('MainCtrl', ['$scope', function($scope) {
-  console.log($scope)
+  $scope.message = "Welcome! How are you today?";
 }])
